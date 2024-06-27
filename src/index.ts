@@ -3,9 +3,12 @@ import "dotenv/config";
 import { Context } from "hono";
 import {serve} from '@hono/node-server';
 import { bookRouter } from "./books/books.router";
+import {cors} from 'hono/cors'
 
 
 const app = new Hono();
+
+app.use('/*', cors())
 
 
 app.get("/", async (c) => {

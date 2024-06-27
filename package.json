@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "push": " drizzle-kit generate && drizzle-kit migrate"
+    "push": " drizzle-kit push",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.11.4",

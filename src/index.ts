@@ -1,23 +1,22 @@
 import { Hono } from "hono";
 import "dotenv/config";
-import { Context } from "hono";
-import {serve} from '@hono/node-server';
+import { serve } from '@hono/node-server';
 import { bookRouter } from "./books/books.router";
-import {cors} from 'hono/cors'
-
+import { cors } from 'hono/cors';
 
 const app = new Hono();
 
-app.use('/*', cors())
-
+app.use('/*', cors());
 
 app.get("/", async (c) => {
    c.text("Hello World");
 });
 
-app.route('/', bookRouter)
+app.route('/', bookRouter);
+
 serve({
     fetch: app.fetch,
-    port:Number(process.env.PORT)
-})
-console.log(`Server is running on http://localhost:${process.env.PORT}`)
+    port: Number(process.env.PORT)
+});
+
+console.log(`Server is running on http://localhost:${process.env.PORT}`);

@@ -8,8 +8,5 @@ export const Books = pgTable('Books', {
   year: integer("year").notNull(),
 });
 
-
-
-
 export type TIBook = typeof Books.$inferInsert;
 export type TSBook = typeof Books.$inferSelect;
